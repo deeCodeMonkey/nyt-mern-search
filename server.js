@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 // Express only serves static assets in production
 //routes for React
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('../build'));
+    app.use(express.static('client/build'));
 
     const path = require('path');
     app.get('*', (req, res) => {
