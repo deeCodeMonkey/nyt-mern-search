@@ -16,8 +16,14 @@ mongoose.Promise = Promise;
 app.use(bodyParser.json());
 
 // Express only serves static assets in production
+//routes for React
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('../build'));
+
+    const path = require('path');
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
 }
 
 app.get('/', (req, res) => res.send('Hello Server!!!!'));

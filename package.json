@@ -4,8 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server \" \"npm run client\"",
+    "server": "nodemon server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +18,7 @@
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
     "cheerio": "^1.0.0-rc.2",
+    "concurrently": "^3.5.1",
     "express": "^4.16.2",
     "moment": "^2.19.4",
     "mongoose": "^4.13.7"
