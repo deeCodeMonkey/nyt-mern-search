@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // Route for scraping the website
 //Must be a POST route in order to pass a body
-app.post("/scrape", function (req, res) {
+app.post("/", function (req, res) {
 
     //Search criteria
     let keyword = req.body.keyword.toLowerCase();
