@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-app.get('/', (req, res) => res.send('Hello Server!!!!'));
+//app.get('/', (req, res) => res.send('Hello Server!!!!'));
 
 
 
