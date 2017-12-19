@@ -1,18 +1,19 @@
 {
-  "name": "client",
+  "name": "nyt-react-search",
   "version": "0.1.0",
   "private": true,
-  "proxy": {
-    "/auth/login": {
-      "target": "http://localhost:8080"
-    }
-  },
   "dependencies": {
+    "axios": "^0.17.1",
     "concurrently": "^3.5.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17"
   },
+  "engines": {
+    "node": "^8.5.0",
+    "npm": "5.2.0"
+  },
+  "proxy": "http://localhost:8080",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
