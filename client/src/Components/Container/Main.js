@@ -43,7 +43,7 @@ class Main extends Component {
             yearEnd: this.state.endYear
         };
 
-        axios.post('/', body)
+        axios.post('/scrape', body)
             .then((response) => {
                 this.setState({
                     articles: response.data

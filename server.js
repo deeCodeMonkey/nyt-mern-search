@@ -26,13 +26,13 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-//app.get('/', (req, res) => res.send('Hello Server!!!!'));
+app.get('/', (req, res) => res.send('Hello Server!!!!'));
 
 
 
 // Route for scraping the website
 //Must be a POST route in order to pass a body
-app.post("/", function (req, res) {
+app.post("/scrape", function (req, res) {
 
     //Search criteria
     let keyword = req.body.keyword.toLowerCase();
