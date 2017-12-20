@@ -15,18 +15,9 @@ mongoose.Promise = Promise;
 
 app.use(bodyParser.json());
 
-// Express only serves static assets in production
-//routes for React
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
 
-    const path = require('path');
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    });
-}
 
-app.get('/', (req, res) => res.send('Hello Server!!!!'));
+//app.get('/', (req, res) => res.send('Hello Server!!!!'));
 
 
 
@@ -111,7 +102,7 @@ app.get('/saved', (req, res) => {
         })
         .catch((err) => {
             console.log(err);
-            res.status(500).send(err.message ? err.message : 'ERRORED! Did not delete from Mongo!');
+            res.status(500).send(err.message ? err.message : 'ERRORED! Did not delete in Mongo!');
         });
 
 });
@@ -126,13 +117,22 @@ app.delete('/saved/:id', (req, res) => {
         })
         .catch((err) => {
             console.log(err);
-            res.status(500).send(err.message ? err.message : 'ERRORED! Did not delete from Mongo!');
+            res.status(500).send(err.message ? err.message : 'ERRORED! Did not delete in Mongo!');
         });
 
 });
 
 
+// Express only serves static assets in production
+//routes for React
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
 
+    const path = require('path');
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
 
 //Heroku db connection
 if (process.env.MONGODB_URI) {

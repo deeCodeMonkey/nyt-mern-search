@@ -101,8 +101,8 @@ class Main extends Component {
         return (
             <div className="Main">
                 <div className="well">
-                    <div class="jumbotron">
-                        <h1 class="text-center"><strong><i class="fa fa-newspaper-o"></i> New York Times Search</strong></h1>
+                    <div className="jumbotron">
+                        <h1 className="text-center"><strong><i className="fa fa-newspaper-o"></i> New York Times Search</strong></h1>
                     </div>
 
                     < Search onSubmit={this.handleSearchSubmit} onChange={this.handleInputChange} />
